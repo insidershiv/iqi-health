@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import { pxTorem } from "../../utils/utils";
 import { HomeObj } from "./home-obj";
+import { Button, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
     textAlign: "cover",
   },
+  packageHeading: {
+    color: '#101010'
+  }
 }));
 
 const CardComponent = ({ classes, tile, index }) => (
@@ -79,13 +83,35 @@ const PackageComponent = ({ classes, tile }) => (
     style={{
       backgroundImage: `url(${tile.bgImg})`,
       backgroundSize: "contain",
+      position: "relative"
     }}
     className={classes.pckgContainer}
   >
     <div style={{ height: pxTorem(80) }}>
-      <p className={classes.textStyle}>{tile.name}</p>
+      <p className={classes.textStyle} >{tile.heading}</p>
+      <Typography className={classes.textStyle} style={{ fontWeight: 600, color: '#000000', fontSize: '1rem' }} >
+        {tile.title}
+      </Typography>
+      <div>
+        <Typography style={{ textDecoration: 'line-through', display: 'inline-block', marginRight: pxTorem(5) }}>
+          {tile.oldAmt}
+        </Typography>
+        <Typography style={{ display: 'inline-block', fontWeight: 600 }}>
+          {tile.newAmt}
+        </Typography>
+
+
+      </div>
+
+      <Typography className={classes.textStyle} style={{ maxWidth: '15rem' }}>
+
+        {tile.desc}
+      </Typography>
+      <Button variant="contained" color="primary" style={{ position: 'absolute', left: 15, bottom: 33, backgroundColor: '#036881', color: '#fff' }}>
+        Book Now
+      </Button>
     </div>
-  </div>
+  </div >
 );
 
 const InformedComponent = ({ classes, tile }) => (
@@ -128,12 +154,13 @@ const InformedComponent = ({ classes, tile }) => (
         style={{ height: "100px", width: "100px" }}
       />
     </div>
+
   </div>
 );
 
 const Main = (props) => {
   const classes = useStyles();
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
     <div className={classes.root}>
       <h2 style={{ marginLeft: "2%", fontFamily: "Poppins" }}>My Wellness</h2>
