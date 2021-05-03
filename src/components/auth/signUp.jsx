@@ -24,7 +24,7 @@ import ThemeInput from "../form-elements/themeInput";
 import ThemePassword from "../form-elements/themePassword";
 import ThemeCheckBox from "../form-elements/themeCheckbox";
 
-const SignUp = ({}) => {
+const SignUp = ({ }) => {
   const schema = yup.object().shape({
     name: yup.string().required(),
   });

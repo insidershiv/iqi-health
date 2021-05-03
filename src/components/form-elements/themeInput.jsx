@@ -13,16 +13,19 @@ const ThemeInput = ({
     return (
         <>
             <TextField
-                id="outlined-number"
+
                 label={label}
                 required={isRequired}
                 name={name}
-                ref={register}
+                inputRef={register}
                 variant="outlined"
 
                 {...rest}
             />
-            <small>{errors[name]?.message}</small>
+            <div style={{ display: 'flex', justify: 'flex-start', color: 'tomato', textTransform: 'capitalize' }}>
+                <small>{errors[name]?.message}</small>
+
+            </div>
         </>
     )
 }
