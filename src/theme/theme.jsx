@@ -1,6 +1,8 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints'
 import purple from "@material-ui/core/colors/purple";
 import green from "@material-ui/core/colors/green";
+const breakpoints = createBreakpoints({})
 
 let theme = createMuiTheme({
   palette: {
@@ -33,6 +35,31 @@ let theme = createMuiTheme({
         },
       },
     },
+    MuiTypography: {
+      h6: {
+
+        fontSize: "1rem",
+        [breakpoints.down("md")]: {
+          fontSize: "1rem"
+        },
+        [breakpoints.down("sm")]: {
+          fontSize: ".9rem"
+        },
+
+
+      },
+      subtitle2: {
+        [breakpoints.down("md")]: {
+          fontSize: ".75rem"
+        },
+        [breakpoints.down("sm")]: {
+          fontSize: ".8rem",
+
+
+        }
+
+      }
+    }
     // Mui: {
     //   focused: {
     //     border: '1px solid red',

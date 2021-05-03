@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import { pxTorem } from "../../utils/utils";
 import { HomeObj } from "./home-obj";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Typography, useMediaQuery, useTheme, Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,9 +38,32 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     minWidth: pxTorem(500),
     height: pxTorem(250),
-    margin: "40px 16px",
+    margin: "1rem 1rem",
     padding: "14px 20px 10px 20px",
   },
+  pckgContainerButtonPosition: {
+    position: 'absolute',
+    left: 15,
+    bottom: 33,
+    backgroundColor: '#036881',
+    color: '#fff'
+  },
+  // for small screen pckage container
+  pckgContainerSm: {
+    minWidth: pxTorem(338),
+    marginBottom: 0,
+    height: pxTorem(185)
+
+
+  },
+  pckgContainerButtonPositionSm: {
+    position: 'absolute',
+    left: 15,
+    bottom: 40,
+    backgroundColor: '#036881',
+    color: '#fff'
+  },
+
   gridList: {
     flexWrap: "nowrap",
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
@@ -64,6 +87,16 @@ const useStyles = makeStyles((theme) => ({
   },
   packageHeading: {
     color: '#101010'
+  },
+  referralContainer: {
+    marginBottom: "10px",
+    // display: 'flex', flex: 1,
+    minHeight: "48vh",
+    // backgroundColor: 'red',
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    backgroundImage: `url(${HomeObj.referralData.img})`
   }
 }));
 
@@ -78,36 +111,36 @@ const CardComponent = ({ classes, tile, index }) => (
   </div>
 );
 
-const PackageComponent = ({ classes, tile }) => (
+const PackageComponent = ({ classes, tile, matches }) => (
   <div
     style={{
       backgroundImage: `url(${tile.bgImg})`,
       backgroundSize: "contain",
       position: "relative"
     }}
-    className={classes.pckgContainer}
+    className={matches ? `${classes.pckgContainer} + ' ' ${classes.pckgContainerSm}` : classes.pckgContainer}
   >
     <div style={{ height: pxTorem(80) }}>
-      <p className={classes.textStyle} >{tile.heading}</p>
-      <Typography className={classes.textStyle} style={{ fontWeight: 600, color: '#000000', fontSize: '1rem' }} >
+      <Typography variant="subtitle1" className={classes.textStyle} >{tile.heading}</Typography>
+      <Typography variant="h6" className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
         {tile.title}
       </Typography>
       <div>
-        <Typography style={{ textDecoration: 'line-through', display: 'inline-block', marginRight: pxTorem(5) }}>
+        <Typography variant="subtitle1" style={{ textDecoration: 'line-through', display: 'inline-block', marginRight: pxTorem(5) }}>
           {tile.oldAmt}
         </Typography>
-        <Typography style={{ display: 'inline-block', fontWeight: 600 }}>
+        <Typography variant="subtitle1" style={{ display: 'inline-block', fontWeight: 600, color: '#000' }}>
           {tile.newAmt}
         </Typography>
 
 
       </div>
 
-      <Typography className={classes.textStyle} style={{ maxWidth: '15rem' }}>
+      <Typography variant="subtitle2" className={classes.textStyle} style={matches ? { maxWidth: '9rem' } : { maxWidth: '15rem' }}>
 
         {tile.desc}
       </Typography>
-      <Button variant="contained" color="primary" style={{ position: 'absolute', left: 15, bottom: 33, backgroundColor: '#036881', color: '#fff' }}>
+      <Button variant="contained" size="small" color="primary" className={matches ? classes.pckgContainerButtonPositionSm : classes.pckgContainerButtonPosition} >
         Book Now
       </Button>
     </div>
@@ -160,6 +193,10 @@ const InformedComponent = ({ classes, tile }) => (
 
 const Main = (props) => {
   const classes = useStyles();
+  let theme = useTheme();
+  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
+
   useEffect(() => { }, []);
   return (
     <div className={classes.root}>
@@ -171,19 +208,13 @@ const Main = (props) => {
       </GridList>
       <GridList className={classes.gridList}>
         {HomeObj.packageData.map((tile) => (
-          <PackageComponent classes={classes} tile={tile} />
+          <PackageComponent classes={classes} tile={tile} matches={matchesMD} />
         ))}
       </GridList>
-      <div
-        style={{
-          marginBottom: "40px",
-          height: "48vh",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          backgroundImage: `url(${HomeObj.referralData.img})`,
-        }}
-      ></div>
+      {/* <div className={classes.referralContainer}></div> */}
+      <Grid container className={classes.referralContainer}>
+
+      </Grid>
       <div
         style={{
           marginBottom: "40px",
