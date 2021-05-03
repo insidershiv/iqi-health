@@ -1,17 +1,16 @@
-import './App.css';
-import Home from './screens/home/home';
-import theme from './theme/theme';
-import { ThemeProvider, Typography } from '@material-ui/core';
-import ThemeInput from './components/form-elements/themeInput';
-import SignUp from './components/auth/signUp';
+import { ThemeProvider } from "@material-ui/core";
+import "./App.css";
+import SignUp from "./components/auth/signUp";
+import theme from "./theme/theme";
+import Home from "./screens/home/home";
 
 function App() {
-    return (
-        <ThemeProvider theme={theme}>
-            <SignUp />
-
-        </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={theme}>
+      <Home />
+      {/* <SignUp /> */}
+    </ThemeProvider>
+  );
 }
 
 export default App;

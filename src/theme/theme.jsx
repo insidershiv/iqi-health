@@ -1,37 +1,37 @@
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import purple from "@material-ui/core/colors/purple";
+import green from "@material-ui/core/colors/green";
 
 let theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#02abd6',
+      main: "#02abd6",
     },
     secondary: {
       main: green[500],
     },
   },
   typography: {
-    fontFamily: 'Poppins',
+    fontFamily: "Poppins",
     h1: {
       fontWeight: 600,
-      fontSize: '3rem'
+      fontSize: "3rem",
     },
     subtitle1: {
-      color: '#868686'
-    }
+      color: "#868686",
+    },
+    label: {
+      fontSize: "0.6rem",
+    },
   },
   overrides: {
     MuiFormLabel: {
       asterisk: {
-        color: '#db3131',
-        '&$error': {
-          color: '#db3131'
+        color: "#db3131",
+        "&$error": {
+          color: "#db3131",
         },
-
       },
-
-
     },
     // Mui: {
     //   focused: {
@@ -113,9 +113,8 @@ let theme = createMuiTheme({
     //     }
     //   }
     // }
-  }
+  },
 });
-
 
 theme = responsiveFontSizes(theme);
 
