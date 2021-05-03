@@ -36,7 +36,7 @@ let theme = createMuiTheme({
       },
     },
     MuiTypography: {
-      h6: {
+      h5: {
 
         fontSize: "1rem",
         [breakpoints.down("md")]: {
@@ -48,7 +48,25 @@ let theme = createMuiTheme({
 
 
       },
+
+      h6: {
+
+        fontSize: ".8rem",
+        [breakpoints.down("lg")]: {
+          fontSize: ".8rem",
+        },
+        [breakpoints.down("md")]: {
+          fontSize: ".7rem"
+        },
+        [breakpoints.down("sm")]: {
+          fontSize: ".7rem"
+        },
+
+
+      },
+
       subtitle2: {
+
         [breakpoints.down("md")]: {
           fontSize: ".75rem"
         },

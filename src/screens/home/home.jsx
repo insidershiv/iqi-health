@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+    <defs>
+        <clipPath id="clip-path">
+            <path d="M0 0H10V10H0z" class="cls-1"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:none}
+        </style>
+    </defs>
+    <g id="Favorite" clip-path="url(#clip-path)">
+        <path id="Path_157" fill="#fdb931" d="M5 0l1.563 3.026L10 3.511l-2.5 2.36.562 3.329L5 7.626 1.937 9.2 2.5 5.871 0 3.511l3.438-.484z"/>
+        <path id="Rectangle_1449" d="M0 0H10V10H0z" class="cls-1"/>
+    </g>
+</svg>

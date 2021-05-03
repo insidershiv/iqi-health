@@ -3,12 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import { pxTorem } from "../../utils/utils";
 import { HomeObj } from "./home-obj";
-import { Button, Typography, useMediaQuery, useTheme, Grid } from "@material-ui/core";
+import { Button, Typography, useMediaQuery, useTheme, Grid, Box } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    padding: "2rem",
+    padding: "1rem",
   },
   cardContainer: {
     borderRadius: pxTorem(8),
@@ -122,7 +122,7 @@ const PackageComponent = ({ classes, tile, matches }) => (
   >
     <div style={{ height: pxTorem(80) }}>
       <Typography variant="subtitle1" className={classes.textStyle} >{tile.heading}</Typography>
-      <Typography variant="h6" className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
+      <Typography variant="h5" className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
         {tile.title}
       </Typography>
       <div>
@@ -157,15 +157,33 @@ const InformedComponent = ({ classes, tile }) => (
       justifyContent: "space-between",
       alignItems: "center",
       marginBottom: "40px",
+      backgroundColor: 'yellow',
+
     }}
   >
-    <div style={{ flexGrow: 1, marginRight: "30px" }}>
-      <p
+    <div style={{ marginRight: "30px", backgroundColor: 'red', width: '84%' }}>
+
+      <div style={{
+
+        width: '50%', whiteSpace: 'noWrap', backgroundColor: 'green'
+      }}>
+        <Box
+          component="div"
+          my={2}
+          textOverflow="ellipsis"
+          overflow="hidden"
+
+        >
+          {tile.desc}
+        </Box>
+        {/* {tile.desc} */}
+      </div>
+      {/* <p
         className={classes.textStyle}
         style={{ color: "#4b4b4b", fontSize: "1.2rem" }}
       >
-        {tile.desc}
-      </p>
+      
+      </p> */}
       <div
         style={{
           display: "flex",
