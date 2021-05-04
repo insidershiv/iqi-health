@@ -11,7 +11,6 @@ const ThemeCheckBox = ({
     label,
     ...rest
 }) => {
-    console.log(isChecked);
     return (
         <>
             <FormControlLabel
@@ -23,16 +22,21 @@ const ThemeCheckBox = ({
                         name={name}
                         color="primary"
                         required={isRequired}
-                        defaultValue={false}
+                        register={register}
+                        defaultValue={isChecked}
+                        onChange={handleChange}
+                        {...rest}
                     />
+
                 }
 
 
                 label={<Typography style={{ color: '#2979ff', fontSize: '1rem' }}>{label}</Typography>}
 
             />
-            <div style={{ display: 'flex', justify: 'flex-start', color: 'tomato', textTransform: 'capitalize' }}>
+            <div style={{ marginTop: '0.2rem', display: 'flex', marginLeft: '0', justifyContent: 'flex-start', color: 'tomato', width: '100%', textTransform: 'capitalize' }}>
                 <small>{errors[name]?.message}</small>
+
 
             </div>
         </>

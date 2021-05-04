@@ -19,6 +19,7 @@ export const SignupValidation = Yup.object().shape({
         .required('Mobile Field is required')
         .matches(mobileNumberRegex, "Invalid Number")
         .test('len', 'Must be exactly 10 characters', val => val && val.length === 10),
+
     address: Yup.string()
         .required('Address Field is required'),
     city: Yup.string()
@@ -33,8 +34,9 @@ export const SignupValidation = Yup.object().shape({
         .test('passwords-match', 'Passwords must match', function(value) {
             return this.parent.password === value
         }),
-    accept_terms: Yup.boolean()
-        .required('Please Accept Tems And Conditions to proceed')
+    accept_terms: Yup.bool().oneOf([true], 'Accept Terms & Conditions is required')
+        // country_code: Yup.string()
+        //     .required('Country Code Field is required')
 
 
 

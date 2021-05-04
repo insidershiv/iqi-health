@@ -38,7 +38,7 @@ const ThemePassword = ({
 
                 />
             </FormControl>
-            <div style={{ display: 'flex', justify: 'flex-start', color: 'tomato', textTransform: 'capitalize' }}>
+            <div style={{ display: 'flex', justify: 'flex-start', color: 'tomato', marginTop: '.5rem', textTransform: 'capitalize' }}>
                 <small>{errors[name]?.message}</small>
 
             </div>
