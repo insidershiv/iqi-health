@@ -8,7 +8,8 @@ import { Button, Typography, useMediaQuery, useTheme, Grid, Box } from "@materia
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    padding: "1rem",
+    margin: "1rem",
+
   },
   cardContainer: {
     borderRadius: pxTorem(8),
@@ -80,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
     height: pxTorem(80),
     width: pxTorem(80),
   },
+  referalImg: {
+    height: '100%',
+    width: '100%',
+  },
   textStyle: {
     fontSize: theme.typography.label,
     fontFamily: theme.typography.fontFamily,
@@ -89,14 +94,8 @@ const useStyles = makeStyles((theme) => ({
     color: '#101010'
   },
   referralContainer: {
-    marginBottom: "10px",
-    // display: 'flex', flex: 1,
-    minHeight: "48vh",
-    // backgroundColor: 'red',
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    backgroundImage: `url(${HomeObj.referralData.img})`
+    marginBottom: "30px",
+    marginTop: "30px"
   }
 }));
 
@@ -122,7 +121,10 @@ const PackageComponent = ({ classes, tile, matches }) => (
   >
     <div style={{ height: pxTorem(80) }}>
       <Typography variant="subtitle1" className={classes.textStyle} >{tile.heading}</Typography>
-      <Typography variant="h5" className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
+      <Typography variant="h5
+      
+      
+      " className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
         {tile.title}
       </Typography>
       <div>
@@ -150,40 +152,29 @@ const PackageComponent = ({ classes, tile, matches }) => (
 const InformedComponent = ({ classes, tile }) => (
   <div
     style={{
-      width: "95%",
+      width: "100%",
       alignSelf: "center",
       display: "flex",
       flexDirection: "row",
+      flexWrap: 'wrap',
       justifyContent: "space-between",
       alignItems: "center",
       marginBottom: "40px",
-      backgroundColor: 'yellow',
 
     }}
   >
-    <div style={{ marginRight: "30px", backgroundColor: 'red', width: '84%' }}>
+    <div>
 
-      <div style={{
-
-        width: '50%', whiteSpace: 'noWrap', backgroundColor: 'green'
-      }}>
-        <Box
-          component="div"
-          my={2}
-          textOverflow="ellipsis"
-          overflow="hidden"
-
-        >
-          {tile.desc}
-        </Box>
-        {/* {tile.desc} */}
-      </div>
-      {/* <p
-        className={classes.textStyle}
-        style={{ color: "#4b4b4b", fontSize: "1.2rem" }}
+      <Box
+        component="div"
+        my={2}
+        whiteSpace='noWrap'
+        maxWidth="78vw"
+        textOverflow="ellipsis"
+        overflow="hidden"
       >
-      
-      </p> */}
+        {tile.desc}
+      </Box>
       <div
         style={{
           display: "flex",
@@ -212,7 +203,7 @@ const InformedComponent = ({ classes, tile }) => (
 const Main = (props) => {
   const classes = useStyles();
   let theme = useTheme();
-  const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+  // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
 
   useEffect(() => { }, []);
@@ -229,10 +220,9 @@ const Main = (props) => {
           <PackageComponent classes={classes} tile={tile} matches={matchesMD} />
         ))}
       </GridList>
-      {/* <div className={classes.referralContainer}></div> */}
-      <Grid container className={classes.referralContainer}>
-
-      </Grid>
+      <div container className={classes.referralContainer}>
+        <img className={classes.referalImg} src={HomeObj.referralData.img} alt={'hi'} />
+      </div>
       <div
         style={{
           marginBottom: "40px",
