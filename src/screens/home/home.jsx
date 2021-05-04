@@ -6,8 +6,8 @@ import Main from "./main";
 const Home = () => {
   return (
     <React.Fragment>
-      {/* <Main /> */}
-      <SignUp />
+      <Main />
+
 
       {/* <Footer /> */}
     </React.Fragment>
