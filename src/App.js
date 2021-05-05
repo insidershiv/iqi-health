@@ -8,8 +8,8 @@ import Search from "./screens/search/search";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Home />
-      {/* <Search /> */}
+      {/* <Home /> */}
+      <Search />
       {/* <SignUp /> */}
     </ThemeProvider>
   );

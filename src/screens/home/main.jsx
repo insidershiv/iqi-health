@@ -29,12 +29,14 @@ const useStyles = makeStyles((theme) => ({
     padding: "20px 20px 10px 20px",
     color: "#7C7C7C",
     "&:hover, &:focus": {
-      background: theme.palette.primary.main,
+      // background: theme.palette.primary.main,
+      background: 'red',
       boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
       color: "#ffffff",
     },
     "&:active": {
-      background: theme.palette.primary.main,
+      // background: theme.palette.primary.main,
+      background: 'red',
       boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
       color: "#ffffff",
     },
@@ -241,7 +243,7 @@ const Main = (props) => {
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
     <div className={classes.root}>
       <h2 style={{ marginLeft: "2%", fontFamily: "Poppins" }}>My Wellness</h2>

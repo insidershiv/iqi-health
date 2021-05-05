@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   inputContainer: {
-    marginLeft: "10px",
-    marginRight: "15px",
+    marginLeft: "0.625rem",
+    marginRight: "0.938rem",
     fontSize: "2.8vw",
   },
 }));
@@ -58,7 +58,7 @@ const Header = (props) => {
       flexDirection="column"
       alignItems="center"
       style={{
-        padding: "30px 10px 10px 10px",
+        padding: "1.875rem 0.625rem 0.625rem 0.625rem",
         backgroundColor: "#000000",
         boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
       }}
@@ -72,7 +72,7 @@ const Header = (props) => {
         style={{ backgroundColor: "#000000" }}
       >
         <Box display="flex" flex="1">
-          <img className={classes.menuContainer} src={Menu} />
+          <img className={classes.menuContainer} src={Menu} alt="Menu drawer logo" />
         </Box>
         <Box
           display="flex"
@@ -80,7 +80,7 @@ const Header = (props) => {
           justifyContent="center"
           alignItems="center"
         >
-          <img className={classes.logoContainer} src={Logo} />
+          <img className={classes.logoContainer} src={Logo} alt="Iqi logo" />
         </Box>
         <Box
           display="flex"
@@ -91,9 +91,10 @@ const Header = (props) => {
           <img
             className={classes.imgContainer}
             src={Account}
-            style={{ marginRight: "8px" }}
+            style={{ marginRight: "0.5rem" }}
+            alt="user logo"
           />
-          <img className={[classes.imgContainer]} src={Notify} />
+          <img className={[classes.imgContainer]} src={Notify} alt="notifications logo" />
         </Box>
       </Box>
       {/* location section */}
@@ -102,13 +103,13 @@ const Header = (props) => {
         justifyContent="flex-start"
         alignItems="center"
         width="96%"
-        style={{ marginTop: "20px", marginBottom: "30px" }}
+        style={{ marginTop: "1.25rem", marginBottom: "1.875rem" }}
       >
-        <img className={classes.locationIconStyle} src={Location} />
+        <img className={classes.locationIconStyle} src={Location} alt="location logo" />
         <p className={classes.inputContainer} style={{ color: "white" }}>
           29 DDA Flats, Vivek Vihar, Delhi 110032
         </p>
-        <img style={{ marginLeft: "-10px" }} src={Toggle} />
+        <img style={{ marginLeft: "-0.625rem" }} src={Toggle} alt="toggler logo" />
       </Box>
       {/* search section */}
       <Box
@@ -116,17 +117,18 @@ const Header = (props) => {
         justifyContent="space-between"
         alignItems="center"
         width="93%"
-        borderRadius="6px"
+        borderRadius="0.375rem"
         style={{
           backgroundColor: "white",
-          padding: "8px",
-          marginBottom: "20px",
+          padding: "0.5rem",
+          marginBottom: "1.25rem",
         }}
       >
         <img
           className={classes.searchIconStyle}
-          style={{ marginLeft: "5px" }}
+          style={{ marginLeft: "0.313rem" }}
           src={Search}
+          alt="Search Icon"
         />
         <InputBase
           className={classes.inputContainer}
@@ -141,7 +143,7 @@ const Header = (props) => {
             ),
           }}
         />
-        <img className={classes.filterContainer} src={Filter} />
+        <img className={classes.filterContainer} src={Filter} alt="Filter Icon" />
       </Box>
     </Box>
   );
