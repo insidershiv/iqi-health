@@ -3,19 +3,25 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridList from "@material-ui/core/GridList";
 import { pxTorem } from "../../utils/utils";
 import { HomeObj } from "./home-obj";
-import { Button, Typography, useMediaQuery, useTheme, Grid, Box } from "@material-ui/core";
+import {
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Grid,
+  Box,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    margin: "1rem",
-
+    margin: " 3rem 1rem",
   },
   cardContainer: {
     borderRadius: pxTorem(8),
-    minWidth: pxTorem(200),
+    minWidth: pxTorem(130),
     backgroundColor: "#eeeeee",
-    margin: "20px 16px",
+    margin: "30px 16px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -39,30 +45,28 @@ const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     minWidth: pxTorem(500),
     height: pxTorem(250),
-    margin: "1rem 1rem",
+    margin: "3rem 1rem",
     padding: "14px 20px 10px 20px",
   },
   pckgContainerButtonPosition: {
-    position: 'absolute',
+    position: "absolute",
     left: 15,
     bottom: 33,
-    backgroundColor: '#036881',
-    color: '#fff'
+    backgroundColor: "#036881",
+    color: "#fff",
   },
   // for small screen pckage container
   pckgContainerSm: {
-    minWidth: pxTorem(338),
+    minWidth: pxTorem(360),
     marginBottom: 0,
-    height: pxTorem(185)
-
-
+    height: pxTorem(185),
   },
   pckgContainerButtonPositionSm: {
-    position: 'absolute',
+    position: "absolute",
     left: 15,
-    bottom: 40,
-    backgroundColor: '#036881',
-    color: '#fff'
+    bottom: 30,
+    backgroundColor: "#036881",
+    color: "#fff",
   },
 
   gridList: {
@@ -82,8 +86,8 @@ const useStyles = makeStyles((theme) => ({
     width: pxTorem(80),
   },
   referalImg: {
-    height: '100%',
-    width: '100%',
+    height: "100%",
+    width: "100%",
   },
   textStyle: {
     fontSize: theme.typography.label,
@@ -91,12 +95,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "cover",
   },
   packageHeading: {
-    color: '#101010'
+    color: "#101010",
   },
   referralContainer: {
     marginBottom: "30px",
-    marginTop: "30px"
-  }
+    marginTop: "30px",
+  },
 }));
 
 const CardComponent = ({ classes, tile, index }) => (
@@ -115,61 +119,94 @@ const PackageComponent = ({ classes, tile, matches }) => (
     style={{
       backgroundImage: `url(${tile.bgImg})`,
       backgroundSize: "contain",
-      position: "relative"
+      position: "relative",
     }}
-    className={matches ? `${classes.pckgContainer} + ' ' ${classes.pckgContainerSm}` : classes.pckgContainer}
+    className={
+      matches
+        ? `${classes.pckgContainer} + ' ' ${classes.pckgContainerSm}`
+        : classes.pckgContainer
+    }
   >
     <div style={{ height: pxTorem(80) }}>
-      <Typography variant="subtitle1" className={classes.textStyle} >{tile.heading}</Typography>
-      <Typography variant="h5
+      <Typography variant="subtitle1" className={classes.textStyle}>
+        {tile.heading}
+      </Typography>
+      <Typography
+        variant="h5
       
       
-      " className={classes.textStyle} style={{ fontWeight: 600, color: '#000000' }} >
+      "
+        className={classes.textStyle}
+        style={{ fontWeight: 600, color: "#000000" }}
+      >
         {tile.title}
       </Typography>
       <div>
-        <Typography variant="subtitle1" style={{ textDecoration: 'line-through', display: 'inline-block', marginRight: pxTorem(5) }}>
+        <Typography
+          variant="subtitle1"
+          style={{
+            textDecoration: "line-through",
+            display: "inline-block",
+            marginRight: pxTorem(5),
+          }}
+        >
           {tile.oldAmt}
         </Typography>
-        <Typography variant="subtitle1" style={{ display: 'inline-block', fontWeight: 600, color: '#000' }}>
+        <Typography
+          variant="subtitle1"
+          style={{ display: "inline-block", fontWeight: 600, color: "#000" }}
+        >
           {tile.newAmt}
         </Typography>
-
-
       </div>
 
-      <Typography variant="subtitle2" className={classes.textStyle} style={matches ? { maxWidth: '9rem' } : { maxWidth: '15rem' }}>
-
+      <Typography
+        variant="subtitle2"
+        className={classes.textStyle}
+        style={matches ? { maxWidth: "9rem" } : { maxWidth: "15rem" }}
+      >
         {tile.desc}
       </Typography>
-      <Button variant="contained" size="small" color="primary" className={matches ? classes.pckgContainerButtonPositionSm : classes.pckgContainerButtonPosition} >
+      <Button
+        variant="contained"
+        size="small"
+        color="primary"
+        className={
+          matches
+            ? classes.pckgContainerButtonPositionSm
+            : classes.pckgContainerButtonPosition
+        }
+      >
         Book Now
       </Button>
     </div>
-  </div >
+  </div>
 );
 
 const InformedComponent = ({ classes, tile }) => (
   <div
     style={{
-      width: "100%",
-      alignSelf: "center",
+      width: "98%",
       display: "flex",
-      flexDirection: "row",
-      flexWrap: 'wrap',
+      alignSelf: "center",
       justifyContent: "space-between",
       alignItems: "center",
       marginBottom: "40px",
-
     }}
   >
-    <div>
-
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        flexGrow: 1,
+        width: "100%",
+      }}
+    >
       <Box
         component="div"
         my={2}
-        whiteSpace='noWrap'
-        maxWidth="78vw"
+        whiteSpace="noWrap"
+        maxWidth="60vw"
         textOverflow="ellipsis"
         overflow="hidden"
       >
@@ -180,23 +217,21 @@ const InformedComponent = ({ classes, tile }) => (
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          flexGrow: 1,
         }}
       >
         <p style={{ color: "#878686", fontSize: "1rem" }}>
           {tile.categoryName}
         </p>
-        <p style={{ color: "#878686" }}>...</p>
+        <p style={{ color: "#878686", marginRight: "20px" }}>...</p>
       </div>
     </div>
-    <div>
+    <div style={{ width: "8rem", height: "40%" }}>
       <img
         src={tile.bgImg}
         alt={tile.categoryName}
-        style={{ height: "100px", width: "100px" }}
+        style={{ height: "8rem", width: "8rem" }}
       />
     </div>
-
   </div>
 );
 
@@ -204,9 +239,9 @@ const Main = (props) => {
   const classes = useStyles();
   let theme = useTheme();
   // const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
-  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
-  useEffect(() => { }, []);
+  useEffect(() => {}, []);
   return (
     <div className={classes.root}>
       <h2 style={{ marginLeft: "2%", fontFamily: "Poppins" }}>My Wellness</h2>
@@ -221,7 +256,11 @@ const Main = (props) => {
         ))}
       </GridList>
       <div container className={classes.referralContainer}>
-        <img className={classes.referalImg} src={HomeObj.referralData.img} alt={'hi'} />
+        <img
+          className={classes.referalImg}
+          src={HomeObj.referralData.img}
+          alt={"hi"}
+        />
       </div>
       <div
         style={{

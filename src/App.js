@@ -8,9 +8,9 @@ import Search from "./screens/search/search";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <Home /> */}
+      <Home />
       {/* <Search /> */}
-      <SignUp />
+      {/* <SignUp /> */}
     </ThemeProvider>
   );
 }
