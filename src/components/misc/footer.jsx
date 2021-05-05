@@ -9,10 +9,10 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: "white",
+    color: "black",
     fontSize: pxTorem(14),
     lineHeight: pxTorem(18),
-    backgroundColor: colors.black,
+    backgroundColor: '#cdcdcd',
     borderRadius: 0,
   },
 }));

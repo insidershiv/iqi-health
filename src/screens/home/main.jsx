@@ -28,18 +28,18 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "20px 20px 10px 20px",
     color: "#7C7C7C",
-    "&:hover, &:focus": {
-      // background: theme.palette.primary.main,
-      background: 'red',
-      boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
-      color: "#ffffff",
-    },
-    "&:active": {
-      // background: theme.palette.primary.main,
-      background: 'red',
-      boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
-      color: "#ffffff",
-    },
+    // "&:hover, &:focus": {
+    //   // background: theme.palette.primary.main,
+    //   background: 'red',
+    //   boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
+    //   color: "#ffffff",
+    // },
+    // "&:active": {
+    //   // background: theme.palette.primary.main,
+    //   background: 'red',
+    //   boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
+    //   color: "#ffffff",
+    // },
   },
 
   pckgContainer: {
@@ -106,7 +106,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CardComponent = ({ classes, tile, index }) => (
-  <div className={classes.cardContainer}>
+  <div className={classes.cardContainer} style={index === 0 ? {
+    background: 'red',
+    boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
+    color: "#ffffff"
+  } : {}}>
     <div>
       <img className={classes.imgContainer} src={tile.img} alt={tile.name} />
     </div>
