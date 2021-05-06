@@ -7,10 +7,10 @@ const PublicRoute = ({ LoadComponent, ...rest }) => {
         <Route
 
             render={
-                ({ props }) => userData ? (<
+                ({ props }) => userData && userData.length ? (<
                     Redirect to={
                         {
-                            pathname: "/"
+                            pathname: "/signup"
                         }
                     }
                 />
