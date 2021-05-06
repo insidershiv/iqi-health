@@ -77,7 +77,15 @@ let theme = createMuiTheme({
         }
 
       }
-    }
+    },
+    // MuiMenuItem: { // For ListItem, change this to MuiListItem
+    //   root: {
+    //     "&$selected": {       // this is to refer to the prop provided by M-UI
+    //       backgroundColor: '#02abd6', // updated backgroundColor
+    //       color: '#fff'
+    //     },
+    //   },
+    // },
     // Mui: {
     //   focused: {
     //     border: '1px solid red',

@@ -106,11 +106,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CardComponent = ({ classes, tile, index }) => (
-  <div className={classes.cardContainer} style={index === 0 ? {
+  <div className={classes.cardContainer} key={index} style={index === 0 ? {
     background: 'red',
     boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
     color: "#ffffff"
-  } : {}}>
+  } : {}} >
     <div>
       <img className={classes.imgContainer} src={tile.img} alt={tile.name} />
     </div>
@@ -120,7 +120,7 @@ const CardComponent = ({ classes, tile, index }) => (
   </div>
 );
 
-const PackageComponent = ({ classes, tile, matches }) => (
+const PackageComponent = ({ classes, tile, matches, index }) => (
   <div
     style={{
       backgroundImage: `url(${tile.bgImg})`,
@@ -132,16 +132,14 @@ const PackageComponent = ({ classes, tile, matches }) => (
         ? `${classes.pckgContainer} + ' ' ${classes.pckgContainerSm}`
         : classes.pckgContainer
     }
+    key={index}
   >
     <div style={{ height: pxTorem(80) }}>
       <Typography variant="subtitle1" className={classes.textStyle}>
         {tile.heading}
       </Typography>
       <Typography
-        variant="h5
-      
-      
-      "
+        variant="h5"
         className={classes.textStyle}
         style={{ fontWeight: 600, color: "#000000" }}
       >
@@ -189,7 +187,7 @@ const PackageComponent = ({ classes, tile, matches }) => (
   </div>
 );
 
-const InformedComponent = ({ classes, tile }) => (
+const InformedComponent = ({ classes, tile, index }) => (
   <div
     style={{
       width: "98%",
@@ -199,6 +197,7 @@ const InformedComponent = ({ classes, tile }) => (
       alignItems: "center",
       marginBottom: "40px",
     }}
+    key={index}
   >
     <div
       style={{
@@ -257,11 +256,11 @@ const Main = (props) => {
         ))}
       </GridList>
       <GridList className={classes.gridList}>
-        {HomeObj.packageData.map((tile) => (
-          <PackageComponent classes={classes} tile={tile} matches={matchesMD} />
+        {HomeObj.packageData.map((tile, index) => (
+          <PackageComponent classes={classes} tile={tile} index={index} matches={matchesMD} />
         ))}
       </GridList>
-      <div container className={classes.referralContainer}>
+      <div className={classes.referralContainer}>
         <img
           className={classes.referalImg}
           src={HomeObj.referralData.img}
@@ -285,8 +284,8 @@ const Main = (props) => {
         >
           Be Informed
         </h2>
-        {HomeObj.informedData.map((tile) => (
-          <InformedComponent classes={classes} tile={tile} />
+        {HomeObj.informedData.map((tile, index) => (
+          <InformedComponent classes={classes} tile={tile} index={index} />
         ))}
       </div>
     </div>

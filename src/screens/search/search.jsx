@@ -155,7 +155,7 @@ const SimilarHospitalCardComponent = ({ classes, tile }) => {
   )
 }
 
-const Search = ({ }) => {
+const Hospitals = ({ }) => {
   const classes = useStyles();
   let theme = useTheme();
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
@@ -217,4 +217,4 @@ const Search = ({ }) => {
   );
 };
 
-export default Search;
+export default Hospitals;

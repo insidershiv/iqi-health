@@ -8,17 +8,21 @@ import ThemePassword from '../form-elements/themePassword';
 import ThemeCheckBox from '../form-elements/themeCheckbox';
 import Link from '@material-ui/core/Link';
 import ThemeInputMobile from '../form-elements/themeInputMobile';
+import { useHistory } from 'react-router-dom'
 const SignUp = ({
 }) => {
   const [values, setValues] = useState({
     showPassword: false
   })
   const [isChecked, setIsChecked] = useState(false)
-
+  const history = useHistory()
   const handleCheckChange = (event) => {
     setIsChecked(event.target.checked);
   };
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    localStorage.setItem('userData', JSON.stringify(data));
+    history.push('/');
+  };
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };
