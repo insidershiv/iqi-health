@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PackageComponent = ({ item }) => {
     return (
-        <Box style={{ width: '68%', height: '9rem', backgroundColor: '#ffc1cc', marginTop: '1rem', marginBottom: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '.2rem 3rem 1rem 3rem', borderRadius: '8px' }}>
+        <Box style={{ width: '68%', height: '9rem', backgroundColor: '#ADD8E6', marginTop: '1rem', marginBottom: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '.2rem 3rem 1rem 3rem', borderRadius: '8px' }}>
             <Typography variant="h5" style={{ marginTop: '.8rem', fontWeight: '500', }}>
                 {item.name}
             </Typography>
@@ -91,7 +91,7 @@ const MainPackages = () => {
                     boxShadow: "1px 5px 37px -17px rgba(0,0,0,0.38)",
                 }}
             >
-                <div style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: "row", width: '100%', marginBottom: '.8rem', marginLeft: '.3rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: "row", width: '100%', marginBottom: '.8rem', marginLeft: '1rem' }}>
 
                     <ArrowBackIcon onClick={() => goBack()} />
                 </div>

@@ -1,5 +1,5 @@
 import { Box, Button, Checkbox, FormControlLabel, Grid, Typography } from '@material-ui/core'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SignupValidation } from '../../utils/validation'
@@ -9,6 +9,7 @@ import ThemeCheckBox from '../form-elements/themeCheckbox';
 import Link from '@material-ui/core/Link';
 import ThemeInputMobile from '../form-elements/themeInputMobile';
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 const SignUp = ({
 }) => {
   const [values, setValues] = useState({
@@ -21,8 +22,28 @@ const SignUp = ({
   };
   const onSubmit = data => {
     localStorage.setItem('userData', JSON.stringify(data));
-    history.push('/');
+    axios({
+      method: 'post',
+      url: 'http://test.iqihealth.net/admin/patientregister',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+
+    });
+    // history.push('/');
   };
+  useEffect(() => {
+    axios({
+      method: 'post',
+      url: 'http://test.iqihealth.net/admin/userdata',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+
+    });
+  })
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
   };

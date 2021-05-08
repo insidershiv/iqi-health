@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import Account from "../../../src/assets/img/account.svg";
 import Filter from "../../../src/assets/img/filter.svg";
 import Logo from "../../../src/assets/img/logo.png";
-import Menu from "../../../src/assets/img/menu.svg";
+import MenuLogo from "../../../src/assets/img/menu.svg";
 import Notify from "../../../src/assets/img/notify.png";
 import Search from "../../../src/assets/img/search.svg";
 import Location from "../../../src/assets/img/location.svg";
@@ -15,7 +15,7 @@ import Toggle from "../../../src/assets/img/toggle.svg";
 import { useHistory } from 'react-router-dom'
 
 
-import { Divider, Drawer, List, ListItemText, MenuItem } from "@material-ui/core";
+import { Divider, Drawer, List, ListItemText, Menu, MenuItem } from "@material-ui/core";
 
 
 // const navigationItems = ['Home', 'Members', 'Appointments', 'Consultation', 'Reports', 'Orders', 'My Wallet']
@@ -135,7 +135,7 @@ const Header = (props) => {
           style={{ backgroundColor: "white" }}
         >
           <Box display="flex" flex="1">
-            <img className={classes.menuContainer} src={Menu} alt="Menu drawer logo" onClick={() => setIsDrawerOpen(true)} />
+            <img className={classes.menuContainer} src={MenuLogo} alt="Menu drawer logo" onClick={() => setIsDrawerOpen(true)} />
           </Box>
           <Box
             display="flex"
@@ -156,6 +156,8 @@ const Header = (props) => {
               src={Account}
               style={{ marginRight: "0.5rem" }}
               alt="user logo"
+              aria-controls="simple-menu"
+              onClick={(event) => handleClick(event)}
             />
             <img className={[classes.imgContainer]} src={Notify} alt="notifications logo" />
           </Box>
@@ -233,6 +235,20 @@ const Header = (props) => {
           </div>
 
         </Drawer>
+      </div>
+
+      <div>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={() => { handleClose() }}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
       </div>
 
 
